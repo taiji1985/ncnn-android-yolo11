@@ -219,9 +219,9 @@ return v_259, v_208
 - modify area attention for dynamic shape inference
 
 <table>
-<tr align="center"><td>model</td><td>before</td><td>after</td></tr>
+<tr align="center"><td>changes</td><td>det seg pose obb</td></tr>
 <tr>
-<td>det<br/>seg<br/>pose<br/>obb</td>
+<td>beore</td>
 <td>
 
 ```python
@@ -243,6 +243,9 @@ v_110 = self.model_10_m_0_attn_proj_conv(v_109)
 # ...
 ```
 </td>
+</tr>
+<tr>
+<td>after</td>
 <td>
 
 ```python
