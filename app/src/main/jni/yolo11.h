@@ -16,8 +16,8 @@
 #define YOLO11_H
 
 #include <opencv2/core/core.hpp>
+#include <android/asset_manager.h>
 
-#include <net.h>
 
 struct KeyPoint
 {
@@ -50,7 +50,6 @@ public:
     virtual int draw(cv::Mat& rgb, const std::vector<Object>& objects) = 0;
 
 protected:
-    ncnn::Net yolo11;
     int det_target_size;
 };
 
