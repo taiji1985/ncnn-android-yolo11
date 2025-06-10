@@ -1,0 +1,8 @@
+/app/src/main/jni/opencv-mobile-4.11.0-android/
+/tmp/
+app/.cxx/
+app/build/
+
+app/src/main/jni/ncnn-20250503-android-vulkan/
+.idea/
+.gradle/

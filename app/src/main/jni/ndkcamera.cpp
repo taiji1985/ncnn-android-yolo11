@@ -17,10 +17,12 @@
 #include <string>
 
 #include <android/log.h>
+#include <android/native_window.h>
 
 #include <opencv2/core/core.hpp>
 
 #include "mat.h"
+#include <android/hardware_buffer.h>
 
 static void onDisconnected(void* context, ACameraDevice* device)
 {
@@ -535,6 +537,9 @@ void NdkCameraWindow::on_image(const unsigned char* nv21, int nv21_width, int nv
     int render_h = 0;
     int render_rotate_type = 0;
     {
+        if(win == nullptr){
+            return;
+        }
         int win_w = ANativeWindow_getWidth(win);
         int win_h = ANativeWindow_getHeight(win);
 

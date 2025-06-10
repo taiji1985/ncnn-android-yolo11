@@ -121,22 +121,22 @@ public:
 
 void MyNdkCamera::on_image_render(cv::Mat& rgb) const
 {
-    // yolo11
-    {
-        ncnn::MutexLockGuard g(lock);
-
-        if (g_yolo11)
-        {
-            std::vector<Object> objects;
-            g_yolo11->detect(rgb, objects);
-
-            g_yolo11->draw(rgb, objects);
-        }
-        else
-        {
-            draw_unsupported(rgb);
-        }
-    }
+//    // yolo11
+//    {
+//        ncnn::MutexLockGuard g(lock);
+//
+//        if (g_yolo11)
+//        {
+//            std::vector<Object> objects;
+//            g_yolo11->detect(rgb, objects);
+//
+//            g_yolo11->draw(rgb, objects);
+//        }
+//        else
+//        {
+//            draw_unsupported(rgb);
+//        }
+//    }
 
     draw_fps(rgb);
 }

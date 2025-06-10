@@ -32,6 +32,9 @@ import android.widget.Spinner;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class MainActivity extends Activity implements SurfaceHolder.Callback
 {
     public static final int REQUEST_CAMERA = 100;
@@ -132,6 +135,16 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback
         });
 
         reload();
+
+        //创建定时器，定时调用FdUtils
+        TimerTask tt = new TimerTask() {
+            @Override
+            public void run() {
+                FdUtils.countOpenFileDescriptors(true);
+            }
+        };
+        Timer timer = new Timer();
+        timer.schedule(tt, 0, 5000);
     }
 
     private void reload()
@@ -146,6 +159,7 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height)
     {
+        Log.i("FdUtils", "surfaceChanged");
         yolo11ncnn.setOutputWindow(holder.getSurface());
     }
 
